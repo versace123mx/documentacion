@@ -1,0 +1,1132 @@
+
+trim  <-> para recortar de ambos lados
+replace <->  sirve para remplazar
+slice <->  sirve para cortar requiere dos parametros desde donde hasta donde
+substring  <-> es igual a slice pero este este cambia los valores, ejemplo si el primer valor es mayor al segundo, substring los invierte por que sabe que el primero es mayor al segundo
+charAt <->  corta el primer caracter, a un que tambien se puede hacer con substring
+repeat <-> permite repetir una cadena de texto
+split  <->  divide un string y lo combierte en un arreglo
+includes <-> sirve para ver si un dato esta incluido en un arreglo o una cadena devuelve true o false
+indexOf <-> es muy parecido a includes, solo que este si encuentra lo que buscas te dice en que posicion comienza en caso que no te devuelve un -1
+toUpperCase <-> convertir todo a mayusculas
+toLowerCase <-> convierte todo a minusculas
+undefined <-> es cuando la variable no esta asignada, esta declarada pero no asignada
+Object.freeze( nombre del objeto ) <-> con esto evitamos que se pueda modificar,agregar o eliminar el objeto
+Object.isFrozen( nombre del objeto ) <-> con esto podemos ver si el objeto esta o no congelado
+Object.seal() <-> no se pueden agregar, ni se pueden eliminar propiedades pero si se pueden modificar las propieddes existentes
+Object.isSealed() <-> para verificar si el objeto esta cellado y solo podremos hacer modificaciones
+Object.assign(producto1, produto2) <-> sirve para unir dos objetos
+const resultado = {...producto1, ...producto2} es lo mismo que el anterior pero es otra forma de hacerlo esta se llama spread operator o rest operator
+console.log(Object.keys(producto)); <-> para obtener las llaves del objeto
+console.log(Object.values(producto)); <-> para obtener los valores del objeto
+console.log(Object.entries(producto)); <-> obtenemos los dos valores clave, valor
+undefined <-> valor no encontrado o que la variable no tiene valor
+const numeros = [1, 5, 10, 30, [5,15,47], [5,15,47]];  <-> crear un arreglo
+numeros.push(20); <-> agregar un elemento al arreglo pero al final
+numeros.unshift(14); <-> agregar un elemento al arreglo al comienzo
+const arr3 = arr1.concat(arr2); <-> concatenar dos arreglos
+
+agregar productos pero sin modificar el arreglo original
+const carrito=[];
+const producto = {
+	nombre: 'tablet',
+	precio: 150
+}
+resultado = [...carrito, producto]; 
+de esta forma carrito no ha sido modificado ya que se ha creado una nueva variable que tiene lo que se le agrega al carrito pero como de forma virtual,a comparacion de unshift y push
+
+
+carrito.pop() <-> elimina el ultimo elemento del arrglo
+carrito.shift() <-> elimina del inicio del arreglo
+carrito.splice() <-> eliminar en base a una pocicion o pociciones especificas
+
+
+Forma de acceder a un array
+
+.map y foreach entregan lo mismo pero la diferencia es que map puede devolver un nuevo arreglo y foreach solo devuelve el arreglo.
+
+numeros.forEach((numero) => {
+    console.log(numero);
+});
+
+numeros.map((numero) => {
+    console.log(numero);
+});
+
+const nuevoArreglo = numeros.map((numero) => {
+    console.log(numero);
+});
+
+
+JavaScript Hoisting =  es cuando se llama a una funcion antes de definirla, y una funcion asignada a una variable, la llamada a la funcion antes de inicializarla se ejecuta, pero cuando se asigna a una variable no es ejecutada en primer instancia, por eso hay que tener cuidado cuando se crean las funciones 
+
+en este ejemplo aqui si se manda a llamar
+sumar();
+function sumar(){
+	return 1 + 1;
+}
+
+en este ejemplo aqui se manda a llamar pero no tiene nada ya que se asigno a una variable
+sumar2();
+const sumar2 = function(){
+	return 1 + 3;
+}
+
+const numero1= 25;
+const numero2 = '20';
+perseInt(numero2) //esto es una funcion
+numero1.toString() //esto es un metodo
+
+
+//comprobar si un valor existe en un arreglo
+includes devuelve true or false
+
+//comprobar si un valor existe en un arreglo de objetos o en un arreglo normal
+some devuelve true o false
+
+//saber en que indice se encuentra un elemento
+findIndex
+
+fineIndex y indexOf son muy semejantes solo que fineIndex es como una funcion y sirve para acceder a arreglos normales y a arreglos de objetos, mientras que indexOf solo sirve para arreglos normales
+
+const pendientes = ['Tarea','Comer','Proyecto','Estudiar JavaScript'];
+
+const carro = [
+    {nombre:'Nombre 1',precio:25},
+    {nombre:'Nombre 2',precio:26},
+    {nombre:'Nombre 3',precio:27},
+    {nombre:'Nombre 4',precio:28},
+    {nombre:'Nombre 5',precio:29},
+    {nombre:'Nombre 6',precio:30},
+]
+
+Ejemplo en buscar sobre un arreglo normla:
+console.log(pendientes.indexOf('Comer'));
+console.log(pendientes.findIndex(mes => mes == 'Comer'));
+
+Ejemplo de buscar sobre un arreglo de objetos:
+console.log(carro.indexOf('Nombre 1')); devuelve -1 por que Nombre 1 no existe ya que se tiene que acceder a nombre y poder buscar ahi, pero indeOf no puede acceder a los objetos
+const miCarro = carro.findIndex( car => car.nombre == 'Nombre 3'); 
+console.log(miCarro); devuelve 2
+
+Conclucion, con fineIndex podemos acceder a los dos tipos de arreglos y se recomienda utilizarlo, y indexOf se recomienda para arreglo normales.
+Nota: recordar que esto solo busca a la primer coincidencia. Para encontrar 1 o mas coincidencias se utilizan otras funciones.
+
+
+
+//reduce
+El método reduce JavaScript nos permite, como su nombre indica, reducir el array insertado a un solo valor
+es como un acumulador como si lo hicieramos con un for he ir acumulando un dato a la variable
+https://keepcoding.io/blog/utilizar-el-metodo-reduce-de-javascript/
+
+
+//filter
+es como indexOf o fineIndex pero filter busca todas las coincidencias y las asigna a otro array
+const carro = [
+    {nombre: 'Nombre 1', precio: 25},
+    {nombre: 'Nombre 2', precio: 26},
+    {nombre: 'Nombre 3', precio: 26},
+    {nombre: 'Nombre 4', precio: 28},
+    {nombre: 'Nombre 5', precio: 29},
+    {nombre: 'Nombre 6', precio: 30},
+]
+
+
+const car = carro.filter( producto => producto.precio == 26);
+console.log(car);
+
+
+
+
+//find
+El metodo fine es como fineIndex pero find nos genera un nuevo arreglo, pero solo trae la primer coincidencia.
+
+
+
+//every
+busca sobre todo el arreglo de objetos y comprueba si todos los elementos cumplen una condicion, en caso de que si se cumplea devuelve true, de lo contrario devuelve false
+Nota: es muy parecido a some, solo que some solo funciona con arreglos o arreglo de objetos y every funciona con objetos, arreglos o arreglos de objetos
+
+//concat
+permite unir dos o mas arreglos
+
+//unir con spread operator
+const resultado2 = [...meses, ...meses1, ...meses2]
+
+//spread operator tambien sirve para agregar elementos
+articulosCarrito = [...articulosCarrito, infoCurso]; en este caso agregamos, infoCurso a articulosCarrito
+
+
+//Como acceder al DOM
+
+elemento = document;
+elemento = document.all;
+elemento = document.head;
+elemento = document.body;
+elemento = document.documentURI;
+elemento = document.documentElement;
+elemento = document.images;
+elemento = document.images.length;
+elemento = document.title;
+
+
+Esta es la forma mas facil de acceder a los elementos
+const clases = document.querySelector('.contenedor');
+const clases = document.querySelectorAll('.contenedor');
+
+
+
+//Como acceder con selectores como css
+const hospedaje = document.querySelector('.destinos .card:nth-child(2) .titulo');
+hospedaje.innerHTML='Botarga';
+
+
+/Modificar textos o Imagenes
+const encabezado = document.querySelector('.contenido-hero h1');
+console.log(encabezado.innerText);//trae el texto solo trae el texto que se muestra
+console.log(encabezado.textContent);//trae el texto solo trae texto y los elementos ocultos con css visibility: hidden
+console.log(encabezado.innerHTML);//trae el html completo
+
+
+//Modificar imagen
+const imagen = document.querySelector('.card img').src='img/hacer2.jpg';
+
+
+//Modificar el CSS
+const encabezado = document.querySelector('.contenido-hero h1');
+encabezado.style.color = 'red';
+
+//agregando clase
+const card = document.querySelector('.card');
+card.classList.add('nueva-clase');
+
+//remover clase
+card.classList.remove('nueva-clase');
+console.log(card.classList);
+
+//eliminar elementos 
+remove() con este funcion podemos eliminar un nodo del dom
+
+//eliminar desde el padre
+removeChild()
+
+//crear html desde js y agregarlo al dom
+const enlace = document.createElement('a');
+const navegacion = document.querySelector('.navegacion');
+enlace.textContent='Nuevo enlace';
+enlace.href = 'https://www.google.com/';
+navegacion.appendChild(enlace);
+
+
+navegacion.children; // con esto vemos los hijos que tiene la navegacion
+insertBefore(enlace,navegacion.children[1]); //con esto lo colocamos en un lugar especifico
+
+
+
+//Event Bubbling
+es la propagacion de eventos, cuando tenemos varios eventos sobre elementos que estan juntos, se pueden desencadenar varios eventos ya que el mismo componene tiene varios eventos, para evitar esto hay una opccion que es stopPropagation con esto se evita el event bubbling
+
+
+//Traversi de Dom
+El traversi de dom es muy importante cuando hay muchos elementos en comun, pero hay elementos hijos que los diferencian y con el traversi de dom podemos ir hasta ese hijo y luego ir asia el padre inmediato o padre general de ese elemento y actuar sobre este
+
+
+//Para acceder al valor de un formulario se utiliza 
+e.target.value.trim()  con value accedemos al valor y con trim recortamos los espacios vacios
+
+//para acceder al texto de algun elemento utilizamos
+textContent
+
+
+//Para acceder a un elemento del html atributos, se puede acceder desde el e.target.id donde es el id del elemento en cuestion, o tambien podemos acceder con e.target.getAttribute('id'), solo que observo que cuando tenemos un data-nombre ejemplo, no podemos acceder e.target.data-nombre ya que el guion medio no lo puede interpretar, en caso de quere acceder de esta forma lo mas recomendable seria acceder e.target.getAttribute('data-nombre')
+
+
+
+//Local Storage
+Sirve para almacenar datos en el navegador que persisten y no es como la session, pero tienen un limite y solo acepta string, se puede crear un objeto y luego convertirlo a string
+localStorage.setItem('nombre','Gusatvo Marchena');
+
+Local Storage no acepta objetos, ni arreglos, pero si podemos crear un objeto o array y convertirlo a string y de esta forma poder guardarlo y al obtenerlo se obtendria de la misma forma en objeto o array
+const producto = {
+    nombre: 'Monitor 20 Pulgadas',
+    precio: 300
+}
+
+const productoString = JSON.stringify( producto );
+localStorage.setItem('producto',productoString);
+
+
+//Obtener los elementos de local storage getItem
+const nombre = localStorage.getItem('nombre');
+console.log(nombre);
+
+const producto = localStorage.getItem('producto');
+console.log(JSON.parse(producto));
+
+const numeros = localStorage.getItem('arreglo');
+console.log(JSON.parse(numeros));
+
+
+//eliminar elementos del localstorage
+
+localStorage.removeItem('arreglo');
+
+
+//eliminar todo de localstorage
+localStorage.clear();
+
+
+
+className se agregan clases
+classList sabemos las clases que hay y con .add agregamos clases con punto remove las quitamos
+
+
+//Atributos personalizados
+En js muchas veces requerimos pasar atributos personalizados, para ello tenemos los data atributes que hay dos formas de crearlos
+
+const nuevoGasto = document.createElement('li');
+nuevoGasto.className = 'list-group-item d-flex justify-content-between align-items-center'
+nuevoGasto.setAttribute('data-id', id); //setAttribute es el mas comun
+
+nuevoGasto.dataset.id = id;// esta es la otra forma de aserlo siendo esta la mas neuva
+
+
+//Agregando clases con className y classList.add()
+btnBorrar.className = 'btn btn-danger borrar-gasto';
+btnBorrar.classList.add('btn', 'btn-danger', 'borrar-gasto')
+
+
+//parentElement
+Para insertar un elemento referente a su padre
+appendchild insertar como un nodo hijo de un elemento padre
+tengo que estudiar appendchild, insertbefore y parentElement
+
+
+
+
+//Nota textContent si le pasas html este no interpreta html, para interpretar html seria con innerHTML
+//Nota: los event listener no se ejecutan cuando se crea un elemento despues, por que no existe cuando js registra la primera vez, eso se soluciona con un evenhandler,
+ejemplo, si creamos un boton con js y queremos ejecutarlo antes de que se cree, el js dira este elemento no existe y marcara un error.
+
+
+
+Nota: video 204 a 207
+Podría por favor explicarme porque los objetos previos del Array son reemplazados por el nuevo Objeto? O que es lo que causa esto para yo investigar por mi cuenta el tema en especifico con más facilidad porque no sé si tiene que ver con referencias, la forma en la que se almacenan los arreglos en memoria u otra cosa.
+
+Cuando agregas un objeto JavaScript a un array, lo que se almacena en el array es una referencia al objeto y no una copia independiente del mismo. Esto significa que si modificas el objeto después de agregarlo al array y luego lo agregas nuevamente, en el array aparecerán dos referencias al mismo objeto modificado. En resumen investiga la diferencia entre variables primitivas y objetos.
+
+
+
+//Sets
+Los sets almacenan cualquier tipo de valor, pero no pueden haber datos duplicados y se puede iterar sobre ellos, se puede ver si ahi un elemento dentro de un set con contain y sin necesidad de utilizar un forEach.
+Los WeakSet alamacenan solo objetos no tiene size, no son iterables
+
+
+//Map
+Los Map son iterables, son clases, tiene mejor performance que un objeto
+
+
+//Import y Export
+El impor se utiliza para importa, variables, clases, objetos, funciones etc.
+En el archivo de importar seria algo como import {nombreCliente, ahorro, mostrarInformacion, tieneSaldo, Cliente} from './cliente.js';
+donde los elementos que estan entre las llamaves son las variables, funciones, objetos etc.
+
+Para exportarlos se les agrega la palabra export
+export const nombreCliente = 'Gustavo';
+export const ahorro = 200;
+
+export function mostrarInformacion(nombreCliente,ahorro){
+    return `Cliente: ${nombreCliente} - Ahorro: ${ahorro}`;
+}
+
+export function tieneSaldo(ahorro){
+    if(ahorro > 0){
+        console.log('Si tiene Saldo');
+    }else{
+        console.log('No tiene Saldo');
+    }
+}
+
+export class Cliente{
+    constructor(nombre, ahorro){
+        this.nombre = nombre;
+        this.ahorro = ahorro;
+    }
+
+    mostrarInformacion(){
+        return `Cliente: ${this.nombre} - Ahorro: ${this.ahorro} desde el metodo de la Clase Cliente`;
+    }
+
+}
+
+
+
+Nota: en el html donde se requieran los modulos, en este caso el archivo que esta importando se tiene que colocar el atributo type="module"
+<script src="js/app.js" type="module"></script>
+
+
+
+//Export default cuando se importa este va fuera de las {}, y puede llevar nombre o no y se le puede colocar un alias, solo recordar que los export default solo se puede utilizar 1 por archivo
+
+
+
+//IndexDB
+Api de JS para almacenar grandes cantidades de datos estructurados
+puede almacenar cualquier tipo de dato a diferencia de localStorage
+no tiene limites pero archivos de mas de 50mb va a preguntar por permisos
+
+
+
+//Promesas en JS son como callbacks siempre retorna resolve, reject y cuando no se pasa nada un pendding
+//un valor disponible en el futuro, actualmente o nunca
+const aplicarDescuento = new Promise((resolve, reject) => {
+    const descuento = false;
+    if(descuento){
+        resolve('Se aplico');
+    }else{
+        reject('No se aplico');
+    }
+});
+
+//console.log(aplicarDescuento);
+aplicarDescuento
+    .then(resultado =>{
+        console.log(resultado);
+    })
+    .catch( error => {
+        console.log(error);
+    })
+
+
+
+
+
+
+
+//Notificaciones
+const notificarBtn = document.querySelector('#notificar');
+notificarBtn.addEventListener('click', () =>{
+    Notification//api de notificaciones
+            .requestPermission() //preguntarle al usuario si quiere recibir notificaciones
+            .then( resultado => console.log('el resultado es', resultado))
+            .catch( error => console.log('Acceso denegado',error))
+});
+
+const verNotificacion = document.querySelector('#verNotificacion');
+verNotificacion.addEventListener('click', () => {
+    if(Notification.permission === 'granted'){
+        const minotificacion = new Notification("Notificacion permitida",{
+            body: 'Codigo con Gustavo aaaa',
+            icon: 'img/ccj.png'
+        });
+
+        minotificacion.onclick = function(){
+            //window.open('https://www.codigoconjuan.com');
+            console.log("Hola Culoncita");
+        }
+    }
+});
+
+
+
+//IntersectionObserver  para saber si ya se encuentra visible una parte de algun elemento del dom
+document.addEventListener('DOMContentLoaded',() => {
+    const observer = new IntersectionObserver( entries =>{
+        console.log(entries[0]);
+    });
+
+    observer.observe(document.querySelector('.premium'));
+
+});
+
+
+
+//navigator.onLine  para saber si cuentas con conexion a internet, esto esta a la escucha de ver si estas con internet o no y de esa forma se ejecutara
+
+window.addEventListener('online',actualizaEstado);
+window.addEventListener('offline',actualizaEstado);
+
+function actualizaEstado(){
+    if(navigator.onLine){
+        console.log("Estás conectado a internet");
+    }else{
+        console.log("No estás conectado a internet");
+    }
+}
+
+
+
+
+
+
+//FetchAPI 
+se envian o se reciben datos, antes se asia con ajax, pero ahora se recomienda utilizar esta api nativa, fetchAPI utiliza promisses, no se tiene que utilizar el resolve o reject ya que fetch api ya los tiene implementados.
+
+Ejemplo de consumo con Fetch un archivo json
+const cargarJSONBtn = document.querySelector('#cargarJSON');
+cargarJSONBtn.addEventListener('click', obtenerDatos);
+
+Nota: fetch solo consume texto o json no xml
+
+function obtenerDatos(){
+    const url = 'data/empleado.json';
+    fetch(url)
+        .then( respuesta => {
+            //console.log(respuesta.statusText)
+            //console.log(respuesta.status)
+            //console.log(respuesta.url)
+            return respuesta.json();
+        })
+        .then( datos =>{
+            mostraHTML(datos)
+        })
+        .catch( error => {
+            console.log(error);
+        })
+}
+
+function mostraHTML({empresa, id, nombre, trabajo}){
+    const contenido = document.querySelector('.contenido');
+    contenido.innerHTML = `<p>Empleado: ${nombre}</p>
+                           <p>Empresa: ${empresa}</p>
+                           <p>ID: ${id}</p>
+                           <p>Trabajo: ${trabajo}</p>`;
+}
+
+
+
+
+
+//Difernecia de un Json y un objeto, basicamente son las comas en la llave
+const objeto = {
+	nombre: 'Gustavo'
+}
+
+const json = {
+	"nombre" : "Gustavo"
+}
+
+
+
+
+
+//json-server para tener un servidor con datos json
+para ejecutarlo json-server --watch db.json --port 4000  y el db.json debe de estar en nuestro directorio
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+forEach
+some
+map
+filter
+
+forEach	undefined	Iterar sobre todos los elementos y ejecutar efectos secundarios	No
+some	boolean	Verificar si al menos un elemento cumple con una condición	Sí
+map	Nuevo array	Crear un nuevo array con los resultados de aplicar una función	No
+filter	Nuevo array	Crear un nuevo array con los elementos que pasan una prueba	No
+
+
+ChatGPT
+
+Claro, puedo explicarte las diferencias entre los métodos `forEach`, `some`, `map` y `filter` en JavaScript. Estos métodos son utilizados para iterar sobre arrays y realizar operaciones en sus elementos. Cada uno tiene un propósito específico y se comporta de manera diferente.
+
+### `forEach`
+El método `forEach` ejecuta una función proporcionada una vez por cada elemento del array. Se utiliza para iterar sobre todos los elementos del array y realizar operaciones como efectos secundarios (p. ej., imprimir valores en la consola).
+
+**Sintaxis:**
+```javascript
+array.forEach((element, index, array) => {
+  // código a ejecutar
+});
+```
+
+**Ejemplo:**
+```javascript
+const numbers = [1, 2, 3, 4];
+numbers.forEach(num => {
+  console.log(num);
+});
+// Salida: 1, 2, 3, 4
+```
+
+**Características:**
+- No retorna un nuevo array.
+- No puede detenerse antes de completar todas las iteraciones.
+- Generalmente utilizado para efectos secundarios.
+
+### `some`
+El método `some` verifica si al menos un elemento del array cumple con una condición especificada en la función proporcionada. Retorna `true` si al menos un elemento cumple con la condición, de lo contrario, retorna `false`.
+
+**Sintaxis:**
+```javascript
+const resultado = array.some((element, index, array) => {
+  // condición a evaluar
+});
+```
+
+**Ejemplo:**
+```javascript
+const numbers = [1, 2, 3, 4];
+const hasEvenNumber = numbers.some(num => num % 2 === 0);
+console.log(hasEvenNumber); // Salida: true
+```
+
+**Características:**
+- Retorna un booleano (`true` o `false`).
+- Se detiene tan pronto como encuentra un elemento que cumple con la condición.
+
+### `map`
+El método `map` crea un nuevo array con los resultados de aplicar una función proporcionada a cada elemento del array original.
+
+**Sintaxis:**
+```javascript
+const nuevoArray = array.map((element, index, array) => {
+  // valor a retornar
+});
+```
+
+**Ejemplo:**
+```javascript
+const numbers = [1, 2, 3, 4];
+const doubledNumbers = numbers.map(num => num * 2);
+console.log(doubledNumbers); // Salida: [2, 4, 6, 8]
+```
+
+**Características:**
+- Retorna un nuevo array.
+- No modifica el array original.
+- Ideal para transformar datos.
+
+### `filter`
+El método `filter` crea un nuevo array con todos los elementos que pasan una prueba (especificada en una función proporcionada).
+
+**Sintaxis:**
+```javascript
+const nuevoArray = array.filter((element, index, array) => {
+  // condición a evaluar
+});
+```
+
+**Ejemplo:**
+```javascript
+const numbers = [1, 2, 3, 4];
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); // Salida: [2, 4]
+```
+
+**Características:**
+- Retorna un nuevo array.
+- Contiene solo los elementos que pasan la prueba.
+- No modifica el array original.
+
+### Resumen de Diferencias
+
+| Método   | Retorna       | Propósito                                           | Detiene antes de completar |
+|----------|---------------|-----------------------------------------------------|----------------------------|
+| `forEach`| `undefined`   | Iterar sobre todos los elementos y ejecutar efectos secundarios | No                         |
+| `some`   | `boolean`     | Verificar si al menos un elemento cumple con una condición | Sí                         |
+| `map`    | Nuevo array   | Crear un nuevo array con los resultados de aplicar una función | No                         |
+| `filter` | Nuevo array   | Crear un nuevo array con los elementos que pasan una prueba | No                         |
+   every: Devuelve true si todos los elementos cumplen con una condición
+
+
+every actua sobre, arreglos, objetos y arreglo de objetos
+some solo actua sobre arreglos o arreglo de objetos
+
+
+Cada uno de estos métodos es útil en diferentes escenarios, dependiendo de lo que necesites hacer con el array.
+
+forEach: Itera sobre cada elemento del array, ejecutando una función proporcionada pero no devuelve un nuevo array.
+some: Comprueba si al menos un elemento cumple con la condición y devuelve true o false.
+map: Transforma cada elemento del array según una función proporcionada y devuelve un nuevo array con los resultados.
+filter: Filtra los elementos del array según una condición y devuelve un nuevo array con los elementos que cumplen la condición.
+every: Comprueba si todos los elementos cumplen con la condición y devuelve true o false.
+
+
+some y every para comparar y retorna un boleano
+filter retorna un nuevo array con el filtro aplicado
+for each para iterar
+map para hacer una cambio sobre el elemento y trae otro arreglo parecido a forEach
+includes
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+//Async await
+async va sobre la funcion padre
+await va sobre la funcion que espera ejecutarse
+
+Consultando datos desde promesas y lo mismo pero con async await
+
+//Promesas
+function obtenerDatos(){
+    fetch(url)
+    .then(response => response.json())
+    .then(datos => mostrarDatos(datos));
+}
+
+function mostrarDatos(datos){
+    console.log(datos);
+}
+
+
+//Con Async Await
+async function obtenerDatos(){
+    const respuesta = await fetch(url);
+    const resultado = await respuesta.json();
+    mostrarDatos(resultado);
+}
+
+function mostrarDatos(datos){
+    console.log(datos);
+}
+
+
+
+
+Nota: duda en por que aveces se accede a los objetos en el curso de juanpablo de js mediante punto y aveces mendiante corchetes.
+Segun chatgpt se accede con punto cuando se conoce el nombre del elemento pero cuando es dinamico o esta es una varible se accede con corchetes.
+Esto surge por que en el proyecto de crypto monedas cuando accede a las criptos en lugar de acceder todo con punto el accede unos con corchete y esto
+es por que en esas variables el guarda el valor de la ciptomoneda y la moneda en otra
+
+resultado.DISPLAY.criptomoneda.moneda // esto funcion cuando sabemos que el dato esta dentro de criptomoneda y luego moneda, pero como estos valores cambian, esta son variables
+resultado.DISPLAY[criptomoneda][moneda] // y como criptomoneda y moneda son variables entonces se accede con corchetes[] a esa propiedad
+
+
+Acceso a Propiedades de Objetos en JavaScript
+
+Existen dos maneras principales de acceder a las propiedades de un objeto en JavaScript:
+
+    Notación de punto: objeto.propiedad
+    Notación de corchetes: objeto["propiedad"]
+
+
+Explicación Detallada
+Incorrecto: resultado.DISPLAY.criptomoneda.moneda
+
+Este acceso supone que el objeto resultado.DISPLAY tiene una propiedad literalmente llamada criptomoneda, y dentro de criptomoneda hay una propiedad llamada moneda. Sin embargo, esto no es lo que deseas; deseas acceder a propiedades dinámicas basadas en los valores de las variables criptomoneda y moneda.
+Correcto: resultado.DISPLAY[criptomoneda][moneda]
+
+Este acceso utiliza la notación de corchetes para usar los valores almacenados en las variables criptomoneda y moneda para acceder a las propiedades correspondientes de resultado.DISPLAY. Es decir, si criptomoneda es "BTC" y moneda es "USD", entonces resultado.DISPLAY[criptomoneda][moneda] se evalúa como resultado.DISPLAY["BTC"]["USD"].
+
+
+
+
+funcion normal
+function hola(){
+	
+}
+
+function espresion
+const miFuncion = (paramtro o parametros) => {
+	
+}
+
+
+
+
+
+
+
+
+//First Class Function hace referencia a que las funciones se agregan a una variable como function expresion
+const suma = function(a,b){
+	return a +b
+}
+
+const resultado = suma;
+resultado(10,20)
+
+
+
+//Ejmplo Funcional pero depende el contexto que se vea para saber si es o no mejor
+const carrito = [
+    { nombre: 'Monitor 20 Pulgadas', precio: 500},
+    { nombre: 'Televisión 50 Pulgadas', precio: 700},
+    { nombre: 'Tablet', precio: 300},
+    { nombre: 'Audifonos', precio: 200},
+    { nombre: 'Teclado', precio: 50},
+    { nombre: 'Celular', precio: 500},
+    { nombre: 'Bocinas', precio: 300},
+    { nombre: 'Laptop', precio: 800},
+];
+
+const resultado = carrito.filter( nombre => nombre.nombre.includes('Pulgadas'));
+console.log(carrito);
+console.log(resultado);
+
+/*
+La diferencia es que en condicion se esta realizando la operacion y en filter le estamos pasando la condicion
+const condicion = nombre => nombre.nombre.includes('Pulgadas');
+const resultado = carrito.filter( condicion );
+*/
+
+
+
+
+
+
+
+//Hoisting
+hace referencia a como se ejecuta el javascript
+se ejecuta en dos vueltas 1 registra las funciones y la segunda las ejecuta, por eso cuando creamos las dos tipos de funciones hay que saber si son function expresion o function delcaration
+
+//Esta funcion masrcaria error
+nombre('Gustavo')
+const nombre = nombre => console.log('hola',nombre);
+
+
+
+
+//esta no marcaria error
+obtenerNombre2('Pedro')
+function obtenerNombre2(nombre){
+    console.log(nombre)
+}
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+service workerd y web workers
+
+//Nota:
+aqui se utiliza selft y no window en = service workerd y web workers
+
+
+//Progressive web Apps y Service Workers
+Rapida- Cargan toda la informacion en menos de 5 segundos
+Instalable - se pueden navegar o instalar en tu navegador o telefono movil como una aplicacion nativa
+Soporte Offline - Pueden funcionar incluso sin conexion a internet
+
+Service Workers: son la base de una PWA. Son Scripts que estan corriendo todo el tiempo detras de escenas, funcionan ofline, no tiene accesso al DOM
+Cargan de forma instantanea, pueden sincronizar datos detras de escena o sin interferir en la navegacion
+
+Para que se considere un PWA se requiere un archivo Manifest.json el cual lleva una configuracion
+Tambien se tiene que registrar en el html como una hoja de estilos css
+Ejemplo: <link rel="manifest" href="manifest.json">
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+//Como diferenciar un json de un objeto, json todo va entre comillas dobles la clave y el valor, en el objeto no solo el valor
+
+const cadenaJSON = '{"nombre": "Juan", "edad": 30, "esEstudiante": false, "cursos": ["Matemáticas", "Ciencia", "Historia"]}';
+
+const objeto = {
+    nombre: "Juan",
+    edad: 30,
+    esEstudiante: false,
+    cursos: ["Matemáticas", "Ciencia", "Historia"]
+  };
+
+
+//Convertir Json a Objeto
+
+const nuevoObjeto = JSON.parse(cadenaJSON);
+console.log(nuevoObjeto);
+console.log(typeof nuevoObjeto);
+
+
+//Convertir Objeto a Json
+const nuevojson = JSON.stringify(objeto);
+console.log(nuevojson)
+console.log(typeof nuevojson)
+
+
+
+
+
+//Herramientas de testing
+Jest se require tener node
+Cypress
+
+
+//Instalar JEST
+npm init para crear un package.json
+npm i --save-dev jest para isntalar la dependencia
+npm i -D jest para isntalar la dependencia en modo de desarrollo igual que la linea 875 pero mas corta
+
+npm install react@16.14.0 // para instalar una vercion especifica
+npm install react@^16.0.0 // instalar un vercion igual o mayor a 16.x.x
+https://franyerverjel.com/blog/npm-como-instalar-una-version-especifica-de-un-modulo
+
+crear una carpeta __tests__ y dentro guardar el archivo con los test, en consola ejecutar npm test o npm run test o npm t
+tambien se puede omitir esa carpteta y al archivo de test colocarle un .test
+
+
+//Nota: cuando importamos un archivo a test y quere realizar los tests desde ahi no se puede ya que jest no soporta el import
+para ello utilizamos la dependencia de babel
+1)creamos un archivo .babelrc con la configuracion indicandole que vercion soportara
+2) instalamos babel npm i --save-dev @babel/preset-env
+Esto lo que ara transpilara el codigo de import a una instruccion que entienda jest
+
+
+Nota2: el mejor y mas avanzado software de pruebas unitarias es cypress nos entrega un video, podemos generar screenshoot
+solo funciona para aplicaciones web
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Node
+Entorno de ejecucion para JavaScript del lado del servidor, permite crear aplicaciones de lado del servidor
+Permite crear apis, aplicaciones web, incluso acceder a archivos y leer su contenido
+Excelente para aplicaciones en tiempo real
+
+//Express
+Framework de node,
+Soporta los verbos de HTTP como son POST, GET, PUT, PATCH, DELETE en las rutas (routes)
+MVC, Middleware (una funcion que se ejecuta despues de otras)
+
+Desventajas
+No viene con "baterias incluidas" como puede ser Autenticacion, Roles, ORM o Generador de Modelos, Estas piezas usualmente se instalan via NPM
+
+Nota: un proyecto de express tiene que correr sobre un servidor de node
+La diferencia de vue, react es que estos solo actuan sobre el front y express es el framework, vue y react se compilan para entregar una interface, express se ejecuta con node
+para usar vue y react tambien se utiliza node pero solo es para estar realizando la estructura y llamado a las dependencias ya que al final se compila y entrega una vercion de este codgio compilada.
+
+
+
+//Template Engines
+motores de plantilla
+Angular, React o vue reemplazan estos template engines en una aplicacion
+
+En node y Expess se utiliza Pug, EJS, HBS, React 'no es la libreria de react'
+
+un template engine se instala via npm
+npm install pug
+
+y se habilita en el archivo principal
+
+
+
+include importa archivos completos
+block solamente ciertas bloques de codigo que tu definas.
+
+Nota: funcionan muy parecido a Laravel con Blade, Django con su motor de plantillas
+
+Nota2: convertir html a pug https://html-to-pug.com/
+
+
+//Dependencia para conectarnos a una base de datos
+npm i mysql2 sequelize
+sequelize es un ORM
+
+Conexión a una base de datos descargar 
+npm i mysql2@2.2.5 sequelize@6.3.5
+
+
+
+
+
+//dotenv
+libreria para poner las variables de entorno
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Continuamos con la parte de react
+
+React js es una libreria de javascript para creacion de interfaces de usuario
+
+Existen diferentes formas de instalar react, pero actualmente se utiliza vite
+Para instalar react con vite puedes hacerlo con npm o yarn
+
+Los componentes son funciones
+
+La carpeta donde se trabajara es en src
+
+
+
+JSX es una sintaxis que nos permite combinar JS y HTML
+Los elementos que están entre {} los trata como código de javascript
+La logica de js va antes del return y dentro del return va el html a un que hay alguna excepcciones
+
+
+Componentes:
+te permiten dividir tu cogido en partes reutilizables.
+Los componentes utilizan la extension .js o jsx y se importan con un import de JavaScript
+Se puede pasar informacion de un componente a otro por Props
+
+Cuando se crean componentes con vite y react hay dos reglas. 1) tiene que empezar el nombre del archivo en mayusculas y su extension es jsx
+Y los creamos dentro de la carpeta components
+
+function Header(){
+    return(
+        <h1 className="text-4xl font-extrabold text-gray-500">
+            ¿Cuanto <span className="text-indigo-600">dinero</span> nesecitas?
+        </h1>
+    )
+}
+
+export default Header;
+
+
+Para utilizar este componente se importa y en el return del otro componente se llama <Header />
+
+
+
+
+
+//State en React
+El state es la fuente de la verdad (source of truth) de tu app
+Un listado de clientes, un carrito de compras lleno o vacio, un usuario autenticado es lo que determina cual es el estado o state de tu app
+
+Para definir el state en react se importa useState y la funcion al momento de utilizarse nos retorna 2 valores: state y la funcion que modifica el state
+
+Administrador de State
+useState es suficiente para crear aplicaciones en React
+
+El state no debe modificarse directamente; para eso se debe utilizar la funcion que lo modifica.
+
+En un equipo de trabajo o un proyecto grande se recomienda administrar el state con un state global como Context, Zustand, Recoil o Redux.
+
+
+Nota: El state basicamente se utiliza para valores que cambian si los valores no cambia se colocan en variables
+
+rfce shorcute para crear componentes
+
+
+Nota: los props son variable que se pasan en todos los componentes de react, de esta forma podemos pasarle o no parametros
+
+
+
+
+
+
+Los Helpers son piezas de codigo que nos pueden ayudar hacer tareas repetitivas en lugar de estar creando algun otro componenete,
+
+
+
+useEffect
+es un hook que se ejecuta una vez que el componente esta listo, y toma un array de dependencias.
+En su listado de dependencias se le puede pasar un state para escuchar los cambios que ocurran en ese state, en caso de que el state se actualice, useEffect se va a ejecutar nuevamente
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Continuamos con la parte de VueJS
+
+VueJS
+
+Es un framework de JS para creacion de interfaces de usuario
+Construido sobre HTML, CSS, JS, tiene una sintaxis basada en componenetes que te permite desarrollar de forma eficiente interfaces de usuario
+No consulta una db, tampoco seguridad, ni css, hay que descargar librerias para poder hacer esto
+
+1) instalar vite npm i vite@latest
+2) moverte al proyecto
+3) correr vite npm run dev
+4) Instalar npm i -D tailwindcss@3.1.8 postcss@8.4.18 autoprefixer@10.4.12  para trabajar con tailwin
+5) npx tailwindcss init -p  para generar el archivo de configuracion de tailwind
+
+Vue.js tiene su propio estilo para crear proyectos y estructurarlo.
+Single File Components(SFC) es una convencion en la cual cada componente tiene 3 partes <script><style> y <template>
+
+En <script> se coloca toda la logica de JS de ese componente.
+En <style> se coloca todo el codigo CSS de ese componente.
+En <template> se coloca todo el codigo HTML de ese componente.
+
+
+
+
+Los componentes de Vue se pueden escribit en 2 API's diferentes Options API y Composition API
+
+Option API tu aplicaicon utiliza una sintaxis de tipo Objetos.
+
+Con Composition API se definen los componentes utilizando imports y escribiendo las funciones directamente en el Componente
+
+
+
+Administrar el State
+
+Las dos formas mas sencillas de manejar un state en Vue son con ref y reactive, ambos se importan desde vue
+Ref toma valores primitivos mientras que reactive toma objetos
+
+En un equipo de trabajo o un proyecto grande se recomienda adminsitrar el state con una herramienta llamada Pinia(sustituto de VueX)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+El proceso de fullstack lo estoy asiendo en el archivo de documentacion full_stack_javascript_moderno_juan_pablo
+
+
+
+***********************************************************************************************************************************************************************
+Nota: cuando exportas un valor por default
+archivo operaciones.js
+			function sumar(n1,n2){
+				return n1+n2;
+			}
+			export sumar
+
+en el archivo donde se importa seria import {sumar} from 'ruta'
+
+
+***********************************************************************************************************************************************************************
+
+archivo operaciones.js
+			function sumar(n1,n2){
+				return n1+n2;
+			}
+			export default sumar
+pero si la exportacion es por default se podria importar  asi   import operacion(1,2) from 'ruta'  donde operacion es como el alias de sumar
+
+***********************************************************************************************************************************************************************
+
+Otro ecenario
+
+archivo operaciones.js
+			function sumar(n1,n2){
+				return n1+n2;
+			}
+			function restar(n1,n2){
+				return n1 - n2;
+			}
+			export {sumar,restar}
+
+	En el archivo de importacion  no podemos poner un alias, solo importar normal con el nombre  import {sumar,restar} from 'ruta'
+
+***********************************************************************************************************************************************************************
+
+Otro ecenario
+
+archivo operaciones.js
+			function sumar(n1,n2){
+				return n1+n2;
+			}
+			function restar(n1,n2){
+				return n1 - n2;
+			}
+			export default {sumar,restar}
+
+En el archivo de importar si se le puede poner un alias ejemplo import math from 'ruta'
+pero para utilizar las funciones seria math.sumar  y math.restar
+
+***********************************************************************************************************************************************************************
+
+Estos ecenarios los analice por que en un ejemplo juanpablo havia comentado que se importan con los nombres tal cual, pero en un ejemplo importo un objeto y le puso otro nombre el cual a mi me parecio extraño, no supieron explicarme el motivo, pero en el curso de Fazt de import y export ahi veo que en el caso de export default es como un alias, pero sin emvargo par ano tener temas hacer de la formano comun con el mismo nombre
+
+
+
+
+Un json basicamente es un objeto pero convertido a json
+y un objeto lo podemos convertir a json con JSON.stringify() y podemos volver ese json a objeto con JSON.parse()
+const  user5 =JSON.stringify(user)
+const user7 = JSON.parse(user5)
+
+
+
+**************************************************************************************************************************************************************************
+
+full stack fron
+react
+ BrowserRouter  -- todo tiene que estar rodeado por esta etiqueta
+ Routes -- Agrupa diferentes rutas
+ Route -- ruta en especifico

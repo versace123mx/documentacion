@@ -1,0 +1,215 @@
+#Las cadenas se pueden acceder a cada uno de sus elementos como si fuera un arreglo
+cadena = "HOla mundo"
+print(f"El tamaño de la cadena es: {len(cadena)}")
+print(cadena[0])
+
+#recorremos la cadena por cada valor que tenga
+for index in cadena:
+    print(f"{index}")
+
+#Extraer solo una porcion
+nuvacadena = cadena[0:4]
+print(nuvacadena)
+
+cadena = "Python"
+print(cadena[1:6:2])
+
+#Metodos importantes en Python para cadena de caracteres
+'''
+find
+index
+isalnum
+isalpha
+isdecimal
+isdigit
+islower = comprobar si un texto está todo en minusculas devuelve True si todos los caracteres de una cadena están en minusculas, False en caso contrario.
+isupper = comprobar si un texto está todo en mayúsculas devuelve True si todos los caracteres de una cadena están en mayúsculas, False en caso contrario.
+lower = todos la letras en minusculas
+upper = todos la letras en mayusculas
+capitalize = la primer letra en mayuscula
+swapcase() = devuelve una copia de la cadena con los caracteres en mayúsculas cambiados por minúsculas y viceversa
+'''
+
+Las listas son mutables, pueden cambiar de valor
+[] <-> esto es una lista
+
+Direfentes formas de acceder a las listas
+[0]
+[0:1]
+[:]
+[:5]
+
+append() agregar elemento al final de la lista
+insert(indice,elemento) para insertar un elemento en un indice en especifico, no importa si se inserta en un indice donde ya hay un valor dicho valor no se suplantara, solo cambiara la posicion
+remove elimina el primer valor encontrado en la lista en una coincidencia
+'d' in lista <-> esto sirve para realizar la busqueda de un elemento de un lista, si existe devuelve true de lo contrario devuelve false
+lista.index() <-> encuentra el indice de la primer ocurrencia si no existe marca un error, tambien sirven para las tuplas
+lista.rindex() <-> encuentra el indice de la primer ocurrencia pero de forma de derecha a izquierda
+lista[0]='x' <-> cambiamos el indice cero por el valor de x
+
+#Metodos importantes en Python para listas
+count() cuantas veces se repite un elemento en una lista o tuplas
+extend() extender una lista agregando elementos de otra lista
+pop() elimina y retorna un elemento de la lista
+reverse() reversa el orden actual de la lista
+sort() orderna en acendente o decendente NOta: no se puede ordenar desde un print, ya que sort no devuelve nada solo ordena
+
+listas []
+tuplas ()
+diccionario{}
+
+Tuplas
+Es inmutable y contiene una secuencia ordenada de datos
+tupla = (1,2,3,4,5,6)
+se puede acceder por su indice tupla[0]
+mi_tupla = ("Enero",15,2023)
+mes,dia,anio = mi_tupla  <-> a esto se le conoce como desempaquetado de tuplas
+
+
+len(cadena) para saber el numero de elementos que tiene un string, tupla, lista
+
+
+Diccionarios
+Clave <-> Valor es como un arreglo asociativo, o un json {}
+diccionario = {clave => valor}
+diccionario[clave]
+
+
+diccionario = {'nombre':'Gustavo','edad':35,'sexo':'Masculino'}
+print(diccionario['nombre'])
+diccionario['edad']=36 #sobre escribimos la clave edad
+print(diccionario['edad'])
+diccionario['Pasion']='Computadoras' #ingresamos un nuevo valor
+print(diccionario)
+
+
+eliminar elemento del diccionario
+del diccionario['clave']
+
+with <-> nos permite abrir un archivo y cerrarlo automaticamente
+
+open para abrir archivos de texto
+
+import name_modulo <-> esto sirve para importar un modulo
+modulo.funcion() <-> como llamar a un modulo importado
+
+import name_modulo as alias
+
+form name_modulo import funcion <-> esta forma nos permite importar solo un elemento de ese clase y no todos los elementos esa es la diferencia con respecto a import
+pero aun asi hay diferencias
+
+Ejemplo queremos importar solo pi de un modulo
+from math import pi
+
+Otra forma de importa tambien podria ser
+from math import pi,pow  aqui importamos pi y pow
+from math import * aqui le decimos que importe todo de math que es como import math "Esta sintaxis no es recomendada"
+
+
+
+En la vercion 3.6 fue cunado se agrego f para poder formatear cadenas con numeros y no tener que estar casteando
+print("Esta es mi cadena yo tengo" + " 25 " + "años")  esto no funciona por que esta concatenando con digitos
+print(f"Esta es mi cadena yo tengo {25} años") esto si funciona por el formato
+
+
+// <-> sirve para que un numero decimal nos entregue su parte entera
+x**y <-> elevar x a la potencia de y
+x**0.5 <-> raiz cuadrada de x
+
+Redondeo en Python
+round(numero) Nota: si es 5.5 redondea a 6 si es 5.4 redondea a 5
+round(numero,decimales) aqui no hay tema con el redondeo ya que mostrara los decimales que le pongamos
+
+
+
+numero3 = 13.87
+print(int(numero3)) int solo muestra la parte decimal en este caso 13
+print(round(numero3)) redondea a su par mas arriba en este caso 14
+
+
+13/2 = 6.5
+numero4 = round(13/2,0) aqui el resultado seria 6.0 por que esta poniendo a cero los decimales por lo tanto sigue siendo de typo float, si lo quieres que sea 6 entonces hay que castearlo
+print(numero4)
+print(type(numero4))
+
+
+
+Slicing es la forma de extraer un fragmento de la cadena, o mejor conocido como substring
+frase[0:9] <-> extrae desde el elemento 0 al 9-1
+frase[0:9:2] <-> extrae desde el 0 a 9 de dos en dos sea se brinca de dos en dos
+frase[::-1] <-> extrae una cadena invertida
+
+split() <-> separar un string en partes
+join <-> unir items usando separador
+find <-> encontrar un substring indice
+replace <-> reemplazar un substring
+
+"agua" in poema <-> verifica si se encuentra agua en la cadena de poema true si existe false si no
+poema ="Tierra mojada mis recuerdos de viaje, entre las lluvias"
+
+print(poema.find('agua'))  si lo encuentra devuelve la posicion si no devuelve -1
+
+No confudir encontrar el indice con una ocurrencia
+
+poema ="Tierra mojada mis recuerdos de viaje, entre las lluvias"
+
+print(poema.find("de")) #aqui muestra el indice en caso de encontrarlo de lo contrario muestra -1
+print("agua" in poema) #aqui devuelve un true o un false si lo encuentra o no
+
+
+
+zip <-> combinar listas
+enumerate
+min
+max
+randint <-> devuelve aleatorio de un entero
+uniform <-> devuelve aleatorio en formato float
+random <-> no se le pasan parametros y devuelve un decimal o entero segun su eleccion
+choise <-> trabaja con listas y no con numeros
+shuffle <-> mezcla aleatoria solo funciona con numeros
+
+
+match es como un swit case apartir de python 3.10
+
+
+-----------------------------------------------------------------------
+Trabajar con archivos
+
+open <-> abrir archivos de texto
+
+mi_archivo = open('prueba.txt','w')
+mi_archivo.write("Nuevo texto")
+
+mi_archivo = open('prueba.txt','r')
+print(mi_archivo.readline())
+
+mi_archivo.close()
+
+-----------------------------------------------------------------------
+
+
+Entrando a directorios
+
+import os
+ruta = os.getcwd() #entrega el directorio actual
+print(ruta)
+
+
+os.chdir() <-> cambia de directorio
+os.makedirs <-> crea carpeta
+os.path.basename
+os.path.dirname
+os.rmdir <-> eliminar directorio
+
+from pathlib import Path
+carpeta = Path()
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+Fibonacci y Factorial
+me falta realizar la prueba del ahorcado con 6 intentos

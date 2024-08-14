@@ -1,0 +1,175 @@
+CREATE USER 'cesar'@'localhost' IDENTIFIED BY 'Prueba12#';
+GRANT ALL PRIVILEGES ON * . * TO 'cesar'@'localhost';
+FLUSH PRIVILEGES;
+create database cesar_django;
+
+
+
+CREATE USER 'victorrobles'@'localhost' IDENTIFIED BY 'Prueba12#';
+GRANT ALL PRIVILEGES ON * . * TO 'victorrobles'@'localhost';
+FLUSH PRIVILEGES;
+
+
+CREATE USER 'ferUrrego'@'localhost' IDENTIFIED BY 'Prueba12';
+GRANT ALL PRIVILEGES ON * . * TO 'ferUrrego'@'localhost';
+FLUSH PRIVILEGES;
+
+CREATE USER 'juandemegon'@'localhost' IDENTIFIED BY 'Prueba12';
+GRANT ALL PRIVILEGES ON * . * TO 'juandemegon'@'localhost';
+FLUSH PRIVILEGES;
+set password for 'juandemegon'@'localhost' = password('Prueba12');
+
+CREATE USER 'cesarCancinoLaravel'@'localhost' IDENTIFIED BY 'Prueba12';
+GRANT ALL PRIVILEGES ON * . * TO 'cesarCancinoLaravel'@'localhost';
+FLUSH PRIVILEGES;
+
+
+
+Crear entorno virtual
+virtualenv  nombre_de_tu_entorno
+
+Activar entorno
+nombre_de_tu_entorno\Scripts\activate
+
+Nota: una vez creado el entorno ya se puede trabajar con las instalaciones de mysql y django asi como crear el proyecto, no se requiere estar dentro de la carpeta del entorno creado.
+
+Salir del entorno
+deactivate
+
+Instalar Django
+pip install Django==3.0.5  
+
+Instalar MySQL
+pip install mysqlclient  
+
+Crear un proyecto
+django-admin startproject ejemplo_1
+
+Arrancar el servidor de Django
+Nos solocamos sobre la carpeta de ejemplo_1 y ahi hay dos archivos una carpeta con el nombre ejemplo_1 que contiene todos los archivos a utilizar y configuracion y al nivel de esta esta un manage.py
+python manage.py runserver
+https://developer.mozilla.org/es/docs/Learn/Server-side/Django/development_environment
+
+Levantar el servidor desde una ip local
+python manage.py runserver 192.168.1.94:8000
+
+
+Crear una aplicacion, Django se basa en aplicaciones, todo puede ir sobre una, pero lo mas recomendable es hacerlo en varias apps
+Sobre el mismo directorio dentro de ejemplo_1 que esta el archivo manager.py
+django-admin startapp home <-> home es el nombre de la app aqui hay que cambiarlo por el nombre de nuestra app
+
+
+Nota: En Django se inicia el proyecto, pero dentro de cada proyecto se tienen aplicaciones, que es modelo de desacoplamiento de django, y el conjunto de estas app hacen un proyecto
+
+{%block tituloHome}{%endblock%}
+{%block manzana%}{%endblock%}
+at = en/de/a la
+
+
+Para ejecutar las migraciones que tiene python python manage.py migrate 
+Migraciones
+Nota cuando nosotros creamos migraciones en el archivo models de nuestra aplicacion y queremos ejecutarlas devemos primero informale a python que tenemos nuevas migraciones y luego ya se ejecutan.
+1) python manage.py makemigrations   <---> crea la migracion pero aun no crea las tablas, le decimos a django que hay cambios y genere un fichero de migracion
+2) python manage.py migrate
+
+
+Con el siguiente comando podemos verificar si no hay algun problema en el core de nuestra aplicacion
+python manage.py check gestionPedidos
+
+
+Para crear el super usuario estar dentro del proyecto en este caso ejemplo_1
+python manage.py createsuperuser
+
+
+un modulo se pueden tener clases u metodos y se accede llamando a la carpeta y al nombre del metodo
+import miclase
+o 
+from miclase import nombreClase o nombreMetodo
+
+un paquete es un conjunto de modulos.
+
+
+
+
+ALTER TABLE notas Add fechaActualizacion datetime null after fechaInsert;
+ALTER TABLE notas drop column fechaActualizacion;
+
+Equivalencias
+MVT = Modelo Vista  Controlador
+MVT = Modelo Templa Vista
+
+
+url con parametros obligatorios
+url con parametros no obligatorios
+url con query string
+
+
+Para registrar los modelos y se visualicen en el admin de django
+1) hay que crear un super usuario
+python manage.py createsuperuser
+
+2)en el admin.py de la aplicacion hay que importar los modelos o el modelo y registrarlo
+Ejemplo:
+# Register your models here.
+from .models import Article,Category
+
+admin.site.register(Article)
+admin.site.register(Category)
+
+Cambiar el titulo en la barra donde aparecen nuestros registros debajo de los usuarios y grupos del panel de admin
+1) En el archivo app.py de la app colocar verbose_name = 'Gestion de Paginas' debajo de la clase de configuracion
+2) Cambiar en el setting.py el nombre de la app de donde se esta extendiendo ejemplo:  'pages.apps.PagesConfig' <->PagesConfig es el nombre de la clase del archivo app.py y pages es el nombre de la aplicacion
+
+Cambiar lenguaje en el archivo de setings linea Lenguaje code
+
+Si queremos cambiar el nombre de las tablas en nuestro idioma en singular y plurar hay que hacer uso de la clase Meta dentro de los modelos.
+No se le cambia el nombre a la base solo es de forma visual.
+class Meta:
+        verbose_name = "Articulo" #Aqui solo estamos cambiando el nombre de la tabla Article a Articulo, pero solo es visual, ya que internamente seguira llamandose article
+        verbose_name_plural = "Articulos" #lo mismo que anterior pero cuando sea en plural
+
+
+Crear carpeta para subir imagenes
+1) instalar Pilow
+2) crear carpeta en la ruta del proyecto  ejmplo crear ahi la carpeta llamada media
+3) realizar la configuracion en el archivo de settings
+#Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+4) en el modelo donde se crea el campo de imagenes agregar upload_to='articles'
+5)crear ruta para visualizar la imagen        
+
+
+
+Configuracion de titulos del panel de administracion
+1) en el archivo admin.py del modulo
+2) agregar lo siguiente
+
+#configurar el titulo del panel del administracion
+admin.site.site_header = 'Master en Python 1'
+admin.site.site_title = 'Master en Python 2'
+admin.site.index_title = 'Master en Python 3'
+
+
+
+Classy Class-Based Views. CVB - clases basadas en views
+https://ccbv.co.uk/
+
+
+
+
+stalking the wily hacker
+the puzzle palace por james bamford
+the codebreakers- david kahn
+deep black- william e burrows
+defending secrets
+sharing data
+cryptography and data security de dorothy denning
+unix system security de wood y kochan
+
+
+
+Areas de oportunidad en python
+1) entender los modulos y paquetes, cuando utilizar form y cuando import
+2) importar de rutas donde este el mismo modulo y importar desde rutas de otros directorios
+3) entender correctamente el modulo os y sys

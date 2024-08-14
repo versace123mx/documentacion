@@ -1,0 +1,17 @@
+Instalar react
+se requiere node y a su ves npm
+
+npx create-react-app mi-app
+
+Cuando se termine de instalar react hay que movernos al directorio donde esta la app y luego correr npm start
+
+Los componentes de react se pueden crear con la extension js o jsx
+
+Apartir de la vercion 17 de react ya no requiere que se importe import React from "react"; /*Importamos React*/ en el componte
+
+{props.etiquetaAlt}
+
+
+dejarlo por 20 minutos ocuparlo minimo una vez a la semana 
+romero
+oregano

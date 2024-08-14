@@ -1,0 +1,87 @@
+Para realizar una configuracion blogal
+git config --global user.name  "Gustavo"
+git config --global user.email "miemail@gmail.com"
+
+
+Para un repositorio en especifico
+git config  user.name  "Gustavo"
+git config  user.email "miemail@gmail.com"
+
+Pra ver el nombre que esta configurado
+git config user.name
+
+Iniciar repositori
+git init
+
+cambiar nombre del repositorio de master a init (si ya secuenta con master se borra el repor y se vuelve a unicializar para que hora sea init la rama por defaul)
+git config --global init.defaultBranch main
+
+Nota 1: cuando hacemo un commit se recomienda hacerlo con git commit -m "mensaje" ya que si omitimos el -m este nos habrira una vim de linux para agregar ahi el mensaje
+
+
+Configurar visualStudioCode para los mensajes de git
+git config --global core.editor "code --wait"
+
+Modificar el ultimo mensaje del commit
+git commit --amend
+
+Deshacer el ultimo commit sin afectar los cambioshttps://www.mediafire.com/ solo es regresarnos de commit para hacer el cambio y volver a commitear  (color verde)
+git reset --soft HEAD^
+git reset nombre archivo
+
+Si queremos sacar de commit el archivo y llevarlo a preparacion 
+git restore --staged archivo y lo pasa al area roja de modificacion
+
+Si queremos sacar un archivo de el area de cambios roja o preparacion
+hacer
+git restore archivo  esto borrara los cambios de este archivo
+
+git checkout -- . para descartar todos los cambios igual que el anterior  
+
+Regresar al anterior commit pero sin destruir los cambios
+hacemos un git log y vemos el ultimo commit
+git reset por defaul sera --mix
+git reset has  <- nos movera al ultimo commit y moviendo el archivo o modificacion al area de cambios
+
+
+Eliminar el ultimo commit y eliminar su contendio
+git reset --hard has
+
+
+desacer los cambios de un archivo traqueado pero que se modifico
+git checkout -- .
+git checkout nombrearchivo
+
+
+
+Cambiar nombre de rama
+se para sobre la rama y se hace git branch -m nuevonombre
+se pra en otra rama y se hace git branch -m nombreactual nuevonombre
+
+Eliminar Rama Local
+git branch -d nombrerama
+
+Ver el log de manera corta
+git log --oneline
+git log -p
+
+
+ver los repositorios remotos
+git remote -v
+
+
+Nota: recordar que una cosa es localhttps://www.mediafire.com/ otra es git hub de mi repositorio y otra es trabajar con gente y mi repo con su remoto
+Si se trabaja en colaboracion es importante agregar los remotos de la forma correctahttps://www.mediafire.com/ para traerse los ultimos cambios
+
+mi github seguira siendo 
+git pull origin master
+git push origin master
+
+remoto se hace pull reques a la rama
+
+
+Ver ramas remotas
+git branch -a
+
+Eliminar rama remota
+git push origin -d rama

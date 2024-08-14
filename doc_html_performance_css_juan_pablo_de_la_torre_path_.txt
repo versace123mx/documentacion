@@ -1,0 +1,221 @@
+svg = scalalbe vector graphic  ventajas no se distorciona si se hace grande o muy grande
+header para encabezado
+footer para pie
+nav para navegacion
+main para el contenido principal, no se pueden tener dos main
+section para una seccion
+article para entradas de blog o noticias
+aside barra lateral
+
+iconos https://tablericons.com/
+
+
+No hay diferencia los dos hacen submit
+<input type="submit" value="Enviar">
+<button type="submit">Enviar Button</button>
+
+La primer etiqueta ayuda a que cargue mas rapido el css
+<link rel="preload" href="css/styles.css" as="style">
+<link rel="stylesheet" href="css/styles.css">
+
+unidades de medida
+px se utilizaban con monitores CRT
+em es relativo al tamaño del padre, pero es muy confuso
+rem relativo al documento, toma como referencia el tamaño del documento osea la pagina no del padre nodo
+
+Con las siguientes lineas se hace muy facil de utilizar los rem
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 16px;
+}
+
+
+
+Selector de elemento
+todos los parrafos
+p{
+	color: blue
+}
+
+selectos de Clase
+.cliente{
+	color:blue
+}
+
+selector de ID
+#cliente{
+	color:blue;
+}
+
+selector de Atributo
+[src='logo.jpg']{
+	color:blue;
+}
+
+Combinacion de decententes
+.cliente .nombre{
+	color:blue;
+}
+
+Todos los hijos
+todos los p que tenga una clase padre cliente
+.cliente > p{
+	color:blue;
+}
+
+Nota no se recomienda utilizar los id pero si las clases por especificidad
+
+
+Custom properties en css
+:root{
+    --blanco: #FFF;
+    --oscuro: #212121;
+    --primario: #ffc107;
+}
+
+y se utilizan como color: var(--blanco);
+
+
+Agregar siempre normalize para que los estilos se vean bien en todos los navegadores
+
+
+Recordar simpre display block y display block
+
+
+display: flex; esta propiedad habilita flex box  esto se utiliza para poder separar(distribuir) elementos que estan juntos, en este caso nuestros links
+justify-content: space-between;
+
+Flex por default es row pero se puede utilizar colum
+
+480 un telefono
+768 una tablet
+1140 para laptop o computadora de escritorio
+
+
+
+Pagina para ver si se soporta una propiedad en navegadores
+https://caniuse.com/
+
+
+
+Flex y Grid son muy faciles de usar pero los dos requieren un elemento padre
+
+
+cuando utilizar cover   esto es por que utilizamos una imagen de fondo desde css
+width: 100%;  esto es por que es un elemento de img
+
+
+Me falta entender html semantico para entonces si darle estructura al sitio
+
+Cuando se tiene un blog, con entradas y noticias esto se pone dentro de un article
+
+
+Nota: los elementos inline son inmunes al margin y al with no hace caso, para esto seria mejor cambiar a inline-block
+inline-blook si requiero un margin o un with tomalo,
+
+Los h1,h2 etc te ponen margin por default
+El ul da padding por default y margin
+
+
+
+nombreclase--modificador   esto quiere decir que es una clase pero en algo va a cambiar por eso se le pone el modificador 
+
+
+
+Etiqueta loading="lazy" para las imagenes, esto es para que las imagenes carguen conforme se va asiendo scroll
+etiqueta Preload son elementos que se requiere que se carguen inmediatamente
+etiqueta prefetch para cargar una pagina al momento de cargar el documento completo, esto se puede utilizar con google analitics para saber que pagina cargar inmediatamente y cuando entren a ella no se tarde en cargar
+
+webp es un formato de imagen mas ligero especial para la web, solo que para poder incluirlo en el html se utiliza:
+<picture>
+<source loading='lazy' srcset='aqui va tu imagen.webp' type='image/webp'> <!-- En caso de no soportar esta imagen se va a la siguiente-->
+<img loading='lazy' src='tu imagen en jpg,png, etc' alt='blog' <!-- Si la imagen de webp no se carga entonces se cargaria esta-->
+</picture>
+
+webp solo funciona con etiquetas de html si lo queremos agregar en el background-image: url de css tenemos que hacer uso de la libreria modernizer
+se agrega modernizer con webp se agrega el js y en el css
+.webp{
+	background-image: url('imagen.webp')
+}
+.no.webp{
+	background-image: url('imagen jpg')
+}
+ya que a la hora de incluir modernizer con webp este nos agrega una clase con webp en caso de soportarlo por el navegador, de lo contrario agrega la clase no-webp
+Y para ello tenemos que hacer como un if
+
+
+
+Esta etiqueta es muy importante para que funcione el responsive en moviles y se encargue de que muestre el contenido de forma profesional
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+Otra importante es el <meta name="description" content="Pagina web de blog de cafe"> para buena puntuacion de google
+
+
+
+npm init   para inicializar un proyecto
+npm install sass para instalar una dependencia
+npm uninstall sass para desinstalar la dependencia
+npm install para cuando solo tenemos en package.json y no tenemos la carpeta node_modules
+npm run sass para compilar un bin
+
+Ayudas
+npm i --save-dev jest para isntalar la dependencia
+npm i -D jest para isntalar la dependencia en modo de desarrollo igual que la linea 875 pero mas corta
+
+npm install react@16.14.0 // para instalar una vercion especifica
+npm install react@^16.0.0 // instalar un vercion igual o mayor a 16.x.x
+npm install react@latest //para instalar la ultima vercion de react
+
+
+Usos de Js
+Servidor -> NodeJs / Express / Deno
+
+Automatizacion -> Gulp JS/ WebPack / ESLint
+
+Dependencias -> NPM
+
+Apps Moviles o Escritorio -> React Native / Electron
+
+
+
+
+TepiTacoSpot
+
+Pumas_123_4__ chatgpt
+Prueba12#12# ticketmaster
+Prueba12#12# app.netlify.com
+
+Prueba12#12# github
+Prueba12#12# render.com
+Prueba12# https://account.mongodb.com
+Prueba12# aws
+
+usuario y contraseña del cluster
+Username: versace123mx
+Password: ieme6WMM1GsyC5Lr
+extring de conexion: mongodb+srv://versace123mx:ieme6WMM1GsyC5Lr@cluster0.hbwd5en.mongodb.net/
+
+
+
+
+
+
+
+mapbox, requiere apikey,
+
+leafletjs.com //la mas sencilla y no pide token
+https://www.openstreetmap.org
+https://www.mapbox.com/  //pide token y trae muchas configuracione
+opnelayers  ocupa node
+
+------------------------------------------------------------------------------------------------------------------
+
+
+
+21 mayo gano parley matias
+27 mayo gano parley megastake 20
+4 de junio gano parley stake 20
+24 de junio gano parley 50
+

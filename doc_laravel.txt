@@ -1,0 +1,58 @@
+Instalar laravel
+composer create-project laravel/laravel example-app
+
+configurar host y virtualhost en windows
+Modificar el archivo host con permisos de administrador C:\Windows\System32\drivers\etc para colocar el nombre del sitio y la url
+C:\xampp\apache\conf\extra  modificar el archivo httpd-vhosts.conf para agregar el host visrtual
+
+seeders para crear registros de prueba
+migraciones para realizar las migraciones de las tablas de la tase de datos
+
+Api
+index se consume con get
+show se consume con get pero lleva parametro 
+store se consume por post
+update se consume con put y lleva parametro
+destroy se consume con delite y lleva parametro
+
+
+
+
+
+Directivas blade
+@if
+@else
+@endif
+
+@foreach()
+@endforeach
+
+@isset()
+@endisset
+
+$loop  contiene informacion bastante util
+$loop->last
+
+
+categoria desde rest dos modificado
+CREATE DATABASE IF NOT EXISTS factura_acosta;
+
+'nombre'=>$request->input('nombre'),
+                'slug'=>Str::slug($request->input('nombre'))
+
+
+
+5559414736
+Alberto Reséndiz
+SENIOR PHP DEVELOPER
+
+$45,000 - $52,000 Mensual
+MARKETING EQUIPMENT MANAGEMENT SA de CV enEl Marqués, Qro.
+
+
+5552632100
+Claudia Elizabeth Cano Herrera
+Programador Full Stack Developer SR
+
+$40,000 Mensual
+MVSRADIO enCiudad de México
