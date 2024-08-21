@@ -652,6 +652,35 @@ filter retorna un nuevo array con el filtro aplicado
 for each para iterar
 map para hacer una cambio sobre el elemento y trae otro arreglo parecido a forEach
 includes
+
+
+
+Recorriendo arrays con forEach,
+forEach  solo itera, no crea un arreglo nuevo 
+map itera, crea un nuevo arreglo y se puede crear una condicion
+
+
+//array method
+filter
+includes
+some
+find
+every
+reduce
+
+
+//function expresion
+const sumar = function (num1,num2){
+        console.log(num1 + num2)
+}
+
+//function declaration
+function sumar(num1, num2){
+    console.log(num1 + num2)
+}
+
+//arrow function
+const sumar = (num1,num2) => num1 + num2
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 

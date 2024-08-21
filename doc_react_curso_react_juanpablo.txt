@@ -1,0 +1,185 @@
+crear un nuevo proyecto con vite
+npm create vite@latest y luego de ahi se selecciona react y aqui utilizamos swc que es un compilador de RUST para vite
+
+En el archivo src es donde se va atrabajar todo como en los demas frameworks como Angular, Laravel ect.
+
+En la carpeta publica pueden ir los documentos que estaran disponibles para consumir del cliente, en la carpeta de assets pueden ir igual archivos imagenes css etc pero que el usuario no interectuara con ellos.
+
+El archivo index.css de src sirve para aplicar estilos globales a todos los proyectos y para un diseño especifico en un componente tambien se puede crear su propia hoja de estilo, pero index.css es global.
+
+
+Cuando se crea un nuevo componente se recomienda que sea con mayuscula ejemplo Header.jsx
+el .jsx hace referencia a que se utiliza javascript and xml que es lo que utiliza react, pero tambien puede haber la extension .tsx que es typescript and xml
+
+Otra recomendacion es crear una carpeta dentro de src para los componentes y no tengamos un revoltijo de componentes
+como se ve en el curso
+
+Creamos un componente en la carpete de components y lo llamamos Header.jsx
+ese componente lo exportamos y lo importamos en App.jsx para este caso y lo utilizamos con <Header> dentro del return
+
+
+Ejemplo de paso de valor de un componente a la parte del html en el mismo componente
+function Header() {
+    const nombre = 'Gustavo'
+    return (
+
+    	<h1>Hola {nombre}</h1 {/*aqui pintara Hola Gustavo*/}
+    )
+}
+
+export default Header
+
+
+Reglas JSX
+Todas las etiquetas tienen que tener su apertura y cierre <p></p>  y las etiquetas como link, img, input que no tienen cierre
+se cierran con />, ejemplo <link />, <img />, <input />
+
+cada componente debe tener un return, este return deve de haber maximo un solo elemento en el nivel maximo, ejemplo
+
+Este seria el ideal
+return (
+	<p>Hola mundo</p>
+)
+
+Este marcara error por que se estan ingresando dos p
+return (
+	<p>Hola mundo 1</p>
+	<p>Hola mundo 2</p>
+)
+
+Que pasa si requiero meter mas html, para esto utilizamos un fragment que es como un vacio, se podria crear un div pero creamos div innecesarios es mejor el fragment
+return (
+	<>
+		<p>Hola mundo 1</p>
+		<p>Hola mundo 2</p>
+	</>
+)
+
+Otra forma de utilizarlo es con la etiqueta Fragment
+import {Fragment} from 'react'
+return (
+	<Fragment>
+		<p>Hola mundo 1</p>
+		<p>Hola mundo 2</p>
+	</Fragment>
+)
+
+
+Que son los Hooks (dice Juan Pablo que es lo mas importante de React segun su criterio)
+Los hooks te permiten utilizar las diferentes funciones de React en tus componentes, React tiene una serie de Hooks pero tambien puedes crear los tuyos
+
+Los Hooks estan disponibles desde la version 16.8, previo a ello se tenian que crear Classes para crear y modificar el state, con los Hooks no es necesario
+
+useState --
+useEffect --
+useContext --
+useReducer
+useCallback
+useMemo
+useRef
+useImperativeHandle
+useLayoutEffect
+useInsertionEffect
+useTansition
+useDeferredValue
+useId
+useSyncExternalStore
+
+
+Que es el state
+El estado es una variable con informacion relevante en nuestra aplicacion de REact, algunas veces el state pertenece a un componente en especifico o algunas veces deseas compartirlo a lo largo de diferentes componentes.
+
+Piensa en el state como el resultado de alguna interaccion en el sitio o aplicacion web, el listado de clientes, la imagen a mostrar en una galeria, si un usuario esta o no autenticado
+
+useState siempre devuelve un arreglo
+useState tiene tres partes, 1 el state, una funcion y el valor inicial
+
+Ejemplo:
+
+import { useState } from 'react'
+
+const [customer, setCustomer] = useState({})
+
+customer = state (variable)
+setCustomer = la funcion
+useState = valor inicial en este caso un objeto
+
+React reacciona en base al state, Cada que tu state cambia, tu aplicacion de React va a renderizar y actualizarse con esos cambios, no es necesario hacer nada mas y tu Interfaz siempre estara sincronizada con el state.
+Para modificar el state, se utiliza la funcion que extraemos cuando declaramos el state en nuestro componente.
+
+Reglas de los Hooks
+Los hooks se colocan en la parte superior de tus componentes de React.
+No se deben colocar dentro de condicionales, tampoco desde de un return
+Un Hook no se puede registrar en base a una condicion, osea registrarlo en una condicion, no se puede registrar dentro de funciones o en ciclos, siempre tienen que ir en la parte de arriba del return
+
+
+
+useEffect:
+siempre es un callback, que dependiendo como lo declares va a realizar diferentes acciones, Es el sustituto de lo que antes era componentMidMount() y componentDidUpdate().
+
+Al ejecutarse automaticamente cuando el componente esta listo, es un buen lugar para colocar codigo para consultar una API o LocalStorage, Debido a que le podemos pasar una dependencia y estar escuchando por los cambios que sucedan en una variable, puede actualizar el componente cuando ese cambio suceda
+
+import { useEffect } from 'react'
+
+useEffect( () => {
+	console.log('El componente esta listo')
+},[])
+
+
+
+Statements, se colocan antes del return del componente
+Una app de JS es una serie de statemens, cada statement es una instruccion para hacer algo
+Creacion de variables
+Codigo condicionales con if
+lanzar errores con throw new Error()
+Iterar con While o For
+
+Expressions, se pueden utilizar dentro del return
+una espresion es algo que produce un valor
+Ternario
+utilizar un array method que genere un nuevo array, filter
+.map que genera un nuevo array a diferencia de forEach
+
+
+Los props son valores que se le pasan del padre al hijo y se pasan en el componente como etiquetas, se le pueden pasar
+arrays, objetos o funciones 
+
+Guitar es el componente d es el valor que le estoy colocando a todo el valor del objeto que estoy recorriendo con map
+<Guitar
+ 	id={d.id}
+ 	name={d.name}
+ 	imagen={d.image}
+ 	description={d.description}
+ 	price={d.price}
+/>
+
+
+
+return (
+	{data.map((d)=> (
+       <Guitar
+           id={d.id}
+           name={d.name}
+           imagen={d.image}
+           description={d.description}
+           price={d.price}
+       />
+      )
+    )}
+)
+
+
+o se le puede pasar el objeto completo
+
+return(
+data.map((datos)=> (
+		<Guitar
+			key={datos.id}
+			guitar={datos}
+		/>
+	)
+   )}
+)
+
+para verificar cuales elementos mutan
+https://doesitmutate.xyz/
